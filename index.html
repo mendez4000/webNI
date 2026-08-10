@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<meta name="description"
+      content="NICALEYENDAS - Historias, leyendas y tradiciones de Nicaragua.">
+
+<title>NICALEYENDAS | Historias que viven después de la medianoche</title>
+
+<link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+
+
+<!-- =========================================
+     FONDO ANIMADO
+========================================== -->
+
+<div class="background-effects">
+    <div class="moon"></div>
+
+    <div class="stars">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="fog fog-one"></div>
+    <div class="fog fog-two"></div>
+</div>
+
+
+<!-- =========================================
+     HEADER
+========================================== -->
+
+<header class="header">
+
+    <div class="logo" onclick="mostrarSeccion('inicio')">
+        <span class="logo-icon">🇳🇮</span>
+
+        <div>
+            <strong>NICALEYENDAS</strong>
+            <small>Historias de Nicaragua</small>
+        </div>
+    </div>
+
+
+    <nav class="navigation">
+
+        <button onclick="mostrarSeccion('inicio')">
+            🏠 Inicio
+        </button>
+
+        <button onclick="mostrarSeccion('historias')">
+            👻 Historias
+        </button>
+
+        <button onclick="mostrarSeccion('personajes')">
+            🧙 Personajes
+        </button>
+
+        <button onclick="mostrarSeccion('mapa')">
+            🗺️ Mapa
+        </button>
+
+        <button onclick="mostrarSeccion('diario')">
+            📖 Diario
+        </button>
+
+    </nav>
+
+
+    <div class="header-actions">
+
+        <button
+            class="icon-button"
+            onclick="alternarSonido()"
+            id="soundButton"
+            title="Activar/desactivar sonido">
+            🔇
+        </button>
+
+        <button
+            class="profile-button"
+            onclick="mostrarPerfil()">
+
+            <span>⭐</span>
+            <span id="headerXP">0 XP</span>
+
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================
+     CONTENIDO PRINCIPAL
+========================================== -->
+
+<main>
+
+
+    <!-- =====================================
+         INICIO
+    ====================================== -->
+
+    <section id="inicio" class="page-section active">
+
+        <div class="hero">
+
+            <div class="hero-content">
+
+                <span class="hero-badge">
+                    🇳🇮 PATRIMONIO • MISTERIO • CULTURA
+                </span>
+
+                <h1>
+                    Historias que viven
+                    <span>después de la medianoche.</span>
+                </h1>
+
+                <p>
+                    Descubre las leyendas, personajes y tradiciones
+                    que forman parte de la memoria cultural de Nicaragua.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <button
+                        class="primary-button"
+                        onclick="mostrarSeccion('historias')">
+
+                        👻 Explorar historias
+
+                    </button>
+
+                    <button
+                        class="secondary-button"
+                        onclick="mostrarSeccion('mapa')">
+
+                        🗺️ Explorar Nicaragua
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-scene">
+
+                <div class="hero-moon"></div>
+
+                <div class="mountain mountain-one"></div>
+                <div class="mountain mountain-two"></div>
+
+                <div class="house">
+                    <div class="house-roof"></div>
+
+                    <div class="house-body">
+                        <div class="window window-one"></div>
+                        <div class="window window-two"></div>
+                        <div class="door"></div>
+                    </div>
+                </div>
+
+                <div class="tree tree-one"></div>
+                <div class="tree tree-two"></div>
+
+                <div class="ghost">👻</div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ESTADÍSTICAS -->
+
+        <div class="stats-container">
+
+            <div class="stat-card">
+                <span>👻</span>
+                <strong>5</strong>
+                <small>Historias</small>
+            </div>
+
+            <div class="stat-card">
+                <span>🧙</span>
+                <strong>5</strong>
+                <small>Personajes</small>
+            </div>
+
+            <div class="stat-card">
+                <span>🗺️</span>
+                <strong>5</strong>
+                <small>Regiones</small>
+            </div>
+
+            <div class="stat-card">
+                <span>🏆</span>
+                <strong id="homeXP">0</strong>
+                <small>XP obtenidos</small>
+            </div>
+
+        </div>
+
+
+        <!-- HISTORIAS DESTACADAS -->
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-label">DESCUBRE</span>
+                <h2>Historias destacadas</h2>
+            </div>
+
+            <button
+                class="text-button"
+                onclick="mostrarSeccion('historias')">
+
+                Ver todas →
+            </button>
+
+        </div>
+
+        <div
+            class="stories-grid featured-grid"
+            id="featuredStories">
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         HISTORIAS
+    ====================================== -->
+
+    <section id="historias" class="page-section">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-label">
+                    BIBLIOTECA
+                </span>
+
+                <h2>Historias de Nicaragua</h2>
+
+                <p>
+                    Elige una historia y descubre qué ocurre
+                    cuando tus decisiones cambian el destino.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="search-area">
+
+            <div class="search-box">
+                <span>🔎</span>
+
+                <input
+                    type="text"
+                    id="storySearch"
+                    placeholder="Buscar una leyenda..."
+                    oninput="buscarHistorias()">
+            </div>
+
+
+            <select
+                id="categoryFilter"
+                onchange="filtrarHistorias()">
+
+                <option value="todos">
+                    Todas las categorías
+                </option>
+
+                <option value="leyenda">
+                    Leyendas
+                </option>
+
+                <option value="misterio">
+                    Misterio
+                </option>
+
+                <option value="tradicion">
+                    Tradiciones
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div
+            class="stories-grid"
+            id="storiesGrid">
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         PERSONAJES
+    ====================================== -->
+
+    <section id="personajes" class="page-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-label">
+                    MITOLOGÍA POPULAR
+                </span>
+
+                <h2>Personajes</h2>
+
+                <p>
+                    Conoce a algunos de los personajes más
+                    misteriosos de las leyendas nicaragüenses.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="characters-grid"
+            id="charactersGrid">
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         MAPA
+    ====================================== -->
+
+    <section id="mapa" class="page-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-label">
+                    EXPLORACIÓN
+                </span>
+
+                <h2>Mapa de leyendas</h2>
+
+                <p>
+                    Explora diferentes regiones de Nicaragua
+                    y descubre sus historias.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="map-container">
+
+            <div class="map-card">
+
+                <div class="map-title">
+                    🇳🇮 Nicaragua
+                </div>
+
+                <div class="nicaragua-map">
+
+                    <div
+                        class="map-region region-leon"
+                        onclick="seleccionarRegion('León')">
+
+                        📍
+                        <span>León</span>
+
+                    </div>
+
+
+                    <div
+                        class="map-region region-managua"
+                        onclick="seleccionarRegion('Managua')">
+
+                        📍
+                        <span>Managua</span>
+
+                    </div>
+
+
+                    <div
+                        class="map-region region-masaya"
+                        onclick="seleccionarRegion('Masaya')">
+
+                        📍
+                        <span>Masaya</span>
+
+                    </div>
+
+
+                    <div
+                        class="map-region region-granada"
+                        onclick="seleccionarRegion('Granada')">
+
+                        📍
+                        <span>Granada</span>
+
+                    </div>
+
+
+                    <div
+                        class="map-region region-rivas"
+                        onclick="seleccionarRegion('Rivas')">
+
+                        📍
+                        <span>Rivas</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="region-information"
+                id="regionInformation">
+
+                <div class="region-icon">
+                    🗺️
+                </div>
+
+                <h3>
+                    Selecciona una región
+                </h3>
+
+                <p>
+                    Haz clic sobre una región del mapa
+                    para descubrir sus historias.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         DIARIO
+    ====================================== -->
+
+    <section id="diario" class="page-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-label">
+                    TU AVENTURA
+                </span>
+
+                <h2>Diario del explorador</h2>
+
+                <p>
+                    Aquí se guardan tus historias y descubrimientos.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="diary-container">
+
+            <div class="diary-progress">
+
+                <div class="progress-info">
+
+                    <span>
+                        Historias descubiertas
+                    </span>
+
+                    <strong id="diaryProgressText">
+                        0 / 5
+                    </strong>
+
+                </div>
+
+                <div class="progress-bar">
+                    <div
+                        id="diaryProgress"
+                        class="progress-fill">
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div
+                class="diary-list"
+                id="diaryList">
+            </div>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<!-- =========================================
+     MODAL DE HISTORIA
+========================================== -->
+
+<div
+    class="modal"
+    id="storyModal">
+
+    <div class="story-modal">
+
+        <button
+            class="close-modal"
+            onclick="cerrarHistoria()">
+
+            ×
+
+        </button>
+
+
+        <div class="story-image" id="storyImage">
+
+            <div class="story-image-overlay"></div>
+
+            <div class="story-category"
+                 id="modalCategory">
+            </div>
+
+            <h2 id="modalTitle">
+            </h2>
+
+        </div>
+
+
+        <div class="story-content">
+
+            <div
+                class="story-progress"
+                id="storyProgress">
+            </div>
+
+
+            <div
+                class="story-text"
+                id="storyText">
+            </div>
+
+
+            <div
+                class="choices"
+                id="storyChoices">
+            </div>
+
+
+            <button
+                class="primary-button continue-button"
+                id="continueButton"
+                onclick="continuarHistoria()">
+
+                Continuar
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================
+     MODAL PERFIL
+========================================== -->
+
+<div
+    class="modal"
+    id="profileModal">
+
+    <div class="profile-modal">
+
+        <button
+            class="close-modal"
+            onclick="cerrarPerfil()">
+
+            ×
+
+        </button>
+
+
+        <div class="profile-avatar">
+            🧙
+        </div>
+
+        <h2>Explorador</h2>
+
+        <p>
+            Guardián de las historias de Nicaragua
+        </p>
+
+
+        <div class="profile-level">
+
+            <span>
+                Nivel <strong id="profileLevel">1</strong>
+            </span>
+
+            <span id="profileXP">
+                0 XP
+            </span>
+
+        </div>
+
+
+        <div class="progress-bar">
+
+            <div
+                id="profileProgress"
+                class="progress-fill">
+            </div>
+
+        </div>
+
+
+        <div class="profile-stats">
+
+            <div>
+                <strong id="profileStories">
+                    0
+                </strong>
+
+                <span>Historias</span>
+            </div>
+
+            <div>
+                <strong id="profileFinals">
+                    0
+                </strong>
+
+                <span>Finales</span>
+            </div>
+
+            <div>
+                <strong id="profileAchievements">
+                    0
+                </strong>
+
+                <span>Logros</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================
+     TOAST / NOTIFICACIONES
+========================================== -->
+
+<div
+    class="toast"
+    id="toast">
+
+    <span id="toastIcon">
+        🏆
+    </span>
+
+    <div>
+        <strong id="toastTitle">
+            ¡Logro desbloqueado!
+        </strong>
+
+        <p id="toastMessage">
+        </p>
+    </div>
+
+</div>
+
+
+<!-- =========================================
+     NAVEGACIÓN MÓVIL
+========================================== -->
+
+<nav class="mobile-navigation">
+
+    <button onclick="mostrarSeccion('inicio')">
+        <span>🏠</span>
+        Inicio
+    </button>
+
+    <button onclick="mostrarSeccion('historias')">
+        <span>👻</span>
+        Historias
+    </button>
+
+    <button onclick="mostrarSeccion('mapa')">
+        <span>🗺️</span>
+        Mapa
+    </button>
+
+    <button onclick="mostrarSeccion('diario')">
+        <span>📖</span>
+        Diario
+    </button>
+
+</nav>
+
+
+<script src="app.js"></script>
+
+
+</body>
+</html>
